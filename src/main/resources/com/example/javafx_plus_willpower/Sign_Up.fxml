@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="240.0" prefWidth="478.0" style="-fx-border-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafx_plus_willpower.SignUpController">
+   <children>
+      <Pane layoutX="1.0" layoutY="3.0" prefHeight="250.0" prefWidth="485.0">
+         <children>
+            <TextField fx:id="textField_UserName" alignment="CENTER" layoutX="167.0" layoutY="55.0" promptText="User Name" />
+            <PasswordField fx:id="passwordField_Password" alignment="CENTER" layoutX="167.0" layoutY="92.0" promptText="Password" />
+            <PasswordField fx:id="passwordField_PasswordRepeat" alignment="CENTER" layoutX="167.0" layoutY="127.0" promptText="Repeat Password" />
+            <Button fx:id="btn_RegisterButton" contentDisplay="CENTER" layoutX="167.0" layoutY="162.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="152.0" style="-fx-background-radius: 15;" text="Submit" textFill="WHITE" />
+            <Text layoutX="167.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign Up" textAlignment="CENTER" wrappingWidth="151.59823989868164">
+               <font>
+                  <Font name="Bodoni MT Bold" size="27.0" />
+               </font>
+            </Text>
+            <Text layoutX="174.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Already have an account?" />
+            <Button layoutX="215.0" layoutY="223.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Sign In" underline="true" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

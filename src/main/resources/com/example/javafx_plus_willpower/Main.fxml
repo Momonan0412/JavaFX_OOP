@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-border-style: solid; -fx-border-width: 5px; -fx-border-color: #808080;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafx_plus_willpower.Main">
+   <children>
+      <AnchorPane fx:id="anchorPane_Main" focusTraversable="true" layoutX="11.0" layoutY="8.0" prefHeight="784.0" prefWidth="1259.0" style="-fx-background-color: transparent; -fx-border-color: #808080; -fx-border-width: 1;" />
+      <AnchorPane fx:id="anchorPane_ChatContainer" layoutX="10.0" layoutY="590.0" prefHeight="200.0" prefWidth="555.0" style="-fx-border-color: snow;">
+         <children>
+            <ScrollPane prefHeight="137.0" prefWidth="564.0">
+               <content>
+                  <AnchorPane prefHeight="204.0" prefWidth="549.0" />
+               </content></ScrollPane>
+            <TextArea fx:id="textArea_ChatMsgBox" layoutX="5.0" layoutY="140.0" prefHeight="60.0" prefWidth="440.0" promptText="Type a message..." />
+            <VBox alignment="CENTER" layoutX="439.0" layoutY="139.0" prefHeight="59.0" prefWidth="125.0">
+               <children>
+                  <Button fx:id="btn_ChatSendButton" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="5.0" mnemonicParsing="false" prefHeight="205.0" prefWidth="106.0" style="-fx-background-radius: 10;" text="Send" textFill="WHITE" wrapText="true">
+                     <VBox.margin>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Bodoni MT Bold" size="15.0" />
+                     </font>
+                     <effect>
+                        <Blend mode="MULTIPLY" />
+                     </effect>
+                  </Button>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="anchorPane_OnlinePlayerContainer" layoutX="1066.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Text fill="#808080" fontSmoothingType="LCD" layoutX="50.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Players Online" textAlignment="CENTER" wrappingWidth="100.0">
+               <font>
+                  <Font name="Bodoni MT Bold" size="15.0" />
+               </font>
+            </Text>
+            <ScrollPane layoutY="42.0" prefHeight="180.0" prefWidth="200.0">
+               <content>
+                  <AnchorPane fx:id="anchorPane_OnlineListPlayers" prefHeight="200.0" prefWidth="200.0" />
+               </content>
+            </ScrollPane>
+         </children>
+      </AnchorPane>
+      <TilePane alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="60.0" prefWidth="280.0" style="-fx-background-radius: 15;">
+         <children>
+            <Text fx:id="text_NameOfThePlayer" strokeType="OUTSIDE" strokeWidth="0.0" text="Player's Name" textAlignment="CENTER" wrappingWidth="164.0" TilePane.alignment="CENTER">
+               <font>
+                  <Font name="Bodoni MT" size="20.0" />
+               </font>
+            </Text>
+            <Button fx:id="btn_ButtonDisconnect" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" style="-fx-background-radius: 10;" text="Disconnect" textFill="WHITE" />
+         </children>
+      </TilePane>
+   </children>
+</AnchorPane>
