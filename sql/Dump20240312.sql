@@ -27,7 +27,7 @@ CREATE TABLE `tbluseraccount` (
   `user_name` varchar(255) DEFAULT NULL,
   `password_hashed` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,6 +36,7 @@ CREATE TABLE `tbluseraccount` (
 
 LOCK TABLES `tbluseraccount` WRITE;
 /*!40000 ALTER TABLE `tbluseraccount` DISABLE KEYS */;
+INSERT INTO `tbluseraccount` VALUES (24,'Momonan0412','KamiOshi'),(25,'FurinaGaUtsukushii','qwe'),(26,'asd','asd');
 /*!40000 ALTER TABLE `tbluseraccount` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -48,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-03-10 22:34:39
+-- Dump completed on 2024-03-12  6:30:38

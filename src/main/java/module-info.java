@@ -11,6 +11,7 @@ module com.example.javafx_practice {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
     requires java.sql;
+    requires mysql.connector.j;
 
     opens com.example.javafx_plus_willpower to javafx.fxml;
     exports com.example.javafx_plus_willpower;

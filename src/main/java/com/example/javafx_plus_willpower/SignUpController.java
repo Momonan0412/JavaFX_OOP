@@ -27,12 +27,12 @@ public class SignUpController implements Initializable {
         btn_RegisterButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                String username = textField_UserName.getText();
-                String password = passwordField_Password.getText();
-                String repeatedPassword = passwordField_PasswordRepeat.getText();
+                String username = textField_UserName.getText().trim();
+                String password = passwordField_Password.getText().trim();
+                String repeatedPassword = passwordField_PasswordRepeat.getText().trim();
                 // TODO: if @username @password and @repeatedPassword are null make a alert
                 // TODO: Make a separate class for a more beautiful alert UI! `na same niya ka pretty!`
-                if(!password.equals(repeatedPassword) && username == null){
+                if(username.isEmpty() || password.isEmpty() || repeatedPassword.isEmpty()){
                     Platform.runLater(() -> {
                         Alert alert = new Alert(Alert.AlertType.ERROR);
                         alert.setContentText("Please make sure all fields are not empty!");
@@ -48,10 +48,21 @@ public class SignUpController implements Initializable {
                         alert.show();
                     });
                 } else {
+                    // Attempt to sign up
+
                     // TODO: Make a separate class for a more beautiful alert UI! `na same niya ka pretty!`
-                    if(!DatabaseUtilities.userCheckerMethod(username, password)){
-                        DatabaseUtilities.signUpMethod(username, password);
-                        SceneUtilities.changeScene(actionEvent, "Main.fxml", "Game", null);
+                    if (!DatabaseUtilities.userCheckerMethod(username, password)) {
+                        String signupResult = DatabaseUtilities.signUpMethod(username, password);
+                        Platform.runLater(() -> {
+                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                            alert.setContentText(signupResult);
+                            alert.show();
+
+                            // If signup was successful, change the scene
+                            if (signupResult.equals("Data inserted successfully!")) {
+                                SceneUtilities.changeScene(actionEvent, "Sign_In.fxml", "Sign In", null);
+                            }
+                        });
                     }
                 }
             }
