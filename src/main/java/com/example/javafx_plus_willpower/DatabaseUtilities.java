@@ -39,7 +39,7 @@ public class DatabaseUtilities {
         }
     }
     // Method to check user credentials in the database
-    public static String userCheckerMethod(String username, String password) {
+    public static Boolean userCheckerMethod(String username, String password) {
         String query = "SELECT * FROM tbluseraccount WHERE user_name = ? AND password_hashed = ?";
         try (Connection connection = getConnection(query)) {
             // Set parameters for the prepared statement
@@ -50,10 +50,10 @@ public class DatabaseUtilities {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             // Return a success or failure message based on the result
-            return resultSet.next() ? "Login Success!" : "Login Failed!";
+            return resultSet.next();
         } catch (SQLException e) {
             e.printStackTrace();
-            return "Login Failed!";
+            return false;
         }
     }
 }

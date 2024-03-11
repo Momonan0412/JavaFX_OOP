@@ -31,6 +31,14 @@ public class SignUpController implements Initializable {
                 String password = passwordField_Password.getText();
                 String repeatedPassword = passwordField_PasswordRepeat.getText();
                 // TODO: if @username @password and @repeatedPassword are null make a alert
+                // TODO: Make a separate class for a more beautiful alert UI! `na same niya ka pretty!`
+                if(!password.equals(repeatedPassword) && username == null){
+                    Platform.runLater(() -> {
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setContentText("Please make sure all fields are not empty!");
+                        alert.show();
+                    });
+                }
                 if(!password.equals(repeatedPassword)){
                     System.out.println(password + " " + repeatedPassword); // Debugger
                     // TODO: Make a separate class for a more beautiful alert UI! `na same niya ka pretty!`
@@ -40,7 +48,11 @@ public class SignUpController implements Initializable {
                         alert.show();
                     });
                 } else {
-
+                    // TODO: Make a separate class for a more beautiful alert UI! `na same niya ka pretty!`
+                    if(!DatabaseUtilities.userCheckerMethod(username, password)){
+                        DatabaseUtilities.signUpMethod(username, password);
+                        SceneUtilities.changeScene(actionEvent, "Main.fxml", "Game", null);
+                    }
                 }
             }
         });

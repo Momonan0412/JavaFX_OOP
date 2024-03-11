@@ -29,7 +29,9 @@ public class SignInController implements Initializable {
             public void handle(ActionEvent actionEvent) {
                 // Query in database and find the textField_Username and passwordField_password.
                 // If success, go to main.fxml
-                SceneUtilities.changeScene(actionEvent, "Main.fxml", "Game", null);
+                if(DatabaseUtilities.userCheckerMethod(textField_Username.getText(), passwordField_password.getText())){
+                    SceneUtilities.changeScene(actionEvent, "Main.fxml", "Game", null);
+                }
             }
         });
         btn_SignUp.setOnAction(new EventHandler<ActionEvent>() {
