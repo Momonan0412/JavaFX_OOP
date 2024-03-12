@@ -1,4 +1,4 @@
-package com.example.javafx_plus_willpower;
+package com.example.javafx_plus_willpower.utilities;
 import com.example.javafx_plus_willpower.record.DatabaseConfig;
 
 import java.sql.*;

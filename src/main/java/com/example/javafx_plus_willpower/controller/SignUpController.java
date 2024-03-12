@@ -1,5 +1,7 @@
-package com.example.javafx_plus_willpower;
+package com.example.javafx_plus_willpower.controller;
 
+import com.example.javafx_plus_willpower.utilities.DatabaseUtilities;
+import com.example.javafx_plus_willpower.utilities.SceneUtilities;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

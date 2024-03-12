@@ -1,4 +1,4 @@
-package com.example.javafx_plus_willpower;
+package com.example.javafx_plus_willpower.utilities;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
