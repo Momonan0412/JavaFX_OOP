@@ -1,8 +1,10 @@
 package com.example.javafx_plus_willpower.sockets.client;
 import com.example.javafx_plus_willpower.controller.MainController;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
 
 import java.net.Socket;
@@ -83,8 +85,10 @@ public class ChatClient implements Runnable {
                 String[] currentUsers = temp.split(", ");
                 // TODO: Use `ListView ListView_ViewOnlinePlayers;`
                 // HOW TO HANDLE? THE GUI JAVA FX! SHOULD BE THREAD SAFE!
-                ObservableList<String> listOfUsers = FXCollections.observableArrayList(currentUsers);
-//                MainController.setListView_ViewOnlinePlayers( new ListView<>(listOfUsers));
+                Platform.runLater(() -> {
+                    ObservableList<String> listOfUsers = FXCollections.observableArrayList(currentUsers);
+//                    MainController.setListView_ViewOnlinePlayers( new ListView<>(listOfUsers));
+                });
                 // TODO: MAKE ANOTHER CLASS! (?)
             }
             else {

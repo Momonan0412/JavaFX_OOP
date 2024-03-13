@@ -32,7 +32,8 @@ public class MainController implements Initializable {
 
     }
     // TODO: Implement methods that would update the @FXMLs nodes.
-//    public void setListView_ViewOnlinePlayers(ListView<String> listView_ViewOnlinePlayers) {
-//        listView_ViewOnlinePlayers = listView_ViewOnlinePlayers;
-//    }
+
+    public void setListView_ViewOnlinePlayers(ListView<String> listView_ViewOnlinePlayers) {
+        this.listView_ViewOnlinePlayers = listView_ViewOnlinePlayers;
+    }
 }
