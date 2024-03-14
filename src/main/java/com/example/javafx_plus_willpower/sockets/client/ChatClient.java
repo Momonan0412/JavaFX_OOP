@@ -1,11 +1,7 @@
 package com.example.javafx_plus_willpower.sockets.client;
-import com.example.javafx_plus_willpower.controller.MainController;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ListView;
 
 import java.net.Socket;
 

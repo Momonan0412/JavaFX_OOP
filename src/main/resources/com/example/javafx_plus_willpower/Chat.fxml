@@ -13,21 +13,23 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-border-style: solid; -fx-border-width: 5px; -fx-border-color: #808080;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafx_plus_willpower.controller.MainController">
+<AnchorPane fx:id="anchorPane_ParentOfChat" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="272.0" prefWidth="804.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafx_plus_willpower.controller.ChatController">
    <children>
-      <AnchorPane fx:id="anchorPane_ChatContainer" layoutX="10.0" layoutY="590.0" prefHeight="200.0" prefWidth="555.0" style="-fx-border-color: snow;">
+      <AnchorPane fx:id="anchorPane_ChatContainer" layoutX="19.0" layoutY="56.0" prefHeight="200.0" prefWidth="555.0" style="-fx-border-color: #808080;">
          <children>
             <ScrollPane prefHeight="137.0" prefWidth="564.0">
                <content>
-                  <AnchorPane prefHeight="204.0" prefWidth="549.0">
+                  <AnchorPane prefHeight="127.0" prefWidth="555.0">
                      <children>
                         <VBox prefHeight="137.0" prefWidth="555.0">
                            <children>
                               <TextArea fx:id="textArea_ChatMsgBox" prefHeight="137.0" prefWidth="418.0" />
                            </children>
                         </VBox>
-                     </children></AnchorPane>
-               </content></ScrollPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
             <TextArea fx:id="textArea_SendMsgBox" layoutX="5.0" layoutY="140.0" prefHeight="60.0" prefWidth="440.0" promptText="Type a message..." />
             <VBox alignment="CENTER" layoutX="439.0" layoutY="139.0" prefHeight="59.0" prefWidth="125.0">
                <children>
@@ -49,36 +51,41 @@
             </VBox>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="anchorPane_OnlinePlayerContainer" layoutX="1066.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0">
+      <AnchorPane fx:id="anchorPane_OnlinePlayerContainer" layoutX="585.0" layoutY="57.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #808080;">
          <children>
             <Text fill="#808080" fontSmoothingType="LCD" layoutX="50.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Players Online" textAlignment="CENTER" wrappingWidth="100.0">
                <font>
                   <Font name="Bodoni MT Bold" size="15.0" />
                </font>
             </Text>
-            <ScrollPane layoutY="42.0" prefHeight="180.0" prefWidth="200.0">
+            <ScrollPane layoutY="42.0" prefHeight="151.0" prefWidth="200.0">
                <content>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                  <AnchorPane prefHeight="136.0" prefWidth="200.0">
                      <children>
-                        <VBox prefHeight="200.0" prefWidth="200.0">
+                        <VBox layoutY="-8.0" prefHeight="137.0" prefWidth="200.0">
                            <children>
-                              <ListView fx:id="listView_ViewOnlinePlayers" prefHeight="200.0" prefWidth="200.0" />
+                              <ListView fx:id="listView_ViewOnlinePlayers" prefHeight="163.0" prefWidth="200.0" />
                            </children>
                         </VBox>
-                     </children></AnchorPane>
+                     </children>
+                  </AnchorPane>
                </content>
             </ScrollPane>
          </children>
       </AnchorPane>
-      <TilePane alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="60.0" prefWidth="280.0" style="-fx-background-radius: 15;">
+      <AnchorPane fx:id="anchorPane_NameAndDisconnect" layoutX="18.0" layoutY="14.0" prefHeight="43.0" prefWidth="768.0" style="-fx-border-color: #808080;">
          <children>
-            <Text fx:id="text_NameOfThePlayer" fill="GREY" strokeType="OUTSIDE" strokeWidth="0.0" text="Player's Name" textAlignment="CENTER" wrappingWidth="164.0" TilePane.alignment="CENTER">
-               <font>
-                  <Font name="Bodoni MT" size="17.0" />
-               </font>
-            </Text>
-            <Button fx:id="btn_ButtonDisconnect" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" style="-fx-background-radius: 10; -fx-background-color: #808080;" text="Disconnect" textFill="WHITE" />
+            <TilePane alignment="CENTER" layoutY="6.0" prefHeight="30.0" prefWidth="330.0">
+               <children>
+                  <Text fx:id="text_NameOfThePlayer" fill="GREY" strokeType="OUTSIDE" strokeWidth="0.0" text="Player's Name" textAlignment="CENTER" wrappingWidth="164.0" TilePane.alignment="CENTER">
+                     <font>
+                        <Font name="Bodoni MT" size="17.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="btn_ButtonDisconnect" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" style="-fx-background-radius: 10; -fx-background-color: #808080;" text="Disconnect" textFill="WHITE" />
+               </children>
+            </TilePane>
          </children>
-      </TilePane>
+      </AnchorPane>
    </children>
 </AnchorPane>

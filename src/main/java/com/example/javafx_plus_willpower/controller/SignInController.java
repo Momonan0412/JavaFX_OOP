@@ -34,7 +34,7 @@ public class SignInController implements Initializable {
                 System.out.println("Clicked button connect,  debugging.........");
                 if(DatabaseUtilities.userCheckerMethod(textField_Username.getText(), passwordField_password.getText())){
                     System.out.println("Passed the `userCheckerMethod`, debugging.........");
-                    SceneUtilities.changeScene(actionEvent, "/com/example/javafx_plus_willpower/Main.fxml", "Game", null);
+                    SceneUtilities.changeScene(actionEvent, "/com/example/javafx_plus_willpower/Chat.fxml", "Game", null);
                 }
             }
         });
