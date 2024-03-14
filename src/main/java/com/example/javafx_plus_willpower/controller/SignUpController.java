@@ -40,8 +40,7 @@ public class SignUpController implements Initializable {
                         alert.setContentText("Please make sure all fields are not empty!");
                         alert.show();
                     });
-                }
-                if(!password.equals(repeatedPassword)){
+                } else if(!password.equals(repeatedPassword)){
                     System.out.println(password + " " + repeatedPassword); // Debugger
                     // TODO: Make a separate class for a more beautiful alert UI! `na same niya ka pretty!`
                     Platform.runLater(() -> {
@@ -51,7 +50,6 @@ public class SignUpController implements Initializable {
                     });
                 } else {
                     // Attempt to sign up
-
                     // TODO: Make a separate class for a more beautiful alert UI! `na same niya ka pretty!`
                     if (!DatabaseUtilities.userCheckerMethod(username, password)) {
                         String signupResult = DatabaseUtilities.signUpMethod(username, password);
@@ -62,7 +60,7 @@ public class SignUpController implements Initializable {
 
                             // If signup was successful, change the scene
                             if (signupResult.equals("Data inserted successfully!")) {
-                                SceneUtilities.changeScene(actionEvent, "Sign_In.fxml", "Sign In", null);
+                                SceneUtilities.changeScene(actionEvent, "/com/example/javafx_plus_willpower/Sign_In.fxml", "Sign In", null);
                             }
                         });
                     }

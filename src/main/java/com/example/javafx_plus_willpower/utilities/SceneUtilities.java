@@ -30,6 +30,7 @@ public class SceneUtilities {
         try{
             FXMLLoader loader = new FXMLLoader(SceneUtilities.class.getResource(fxmlFile));
             root = loader.load();
+            if(root == null) System.out.println("The root is null!");
             if (controller != null) {
                 // Set the provided controller instance using FXMLLoader
                 controller = loader.getController();
@@ -39,6 +40,7 @@ public class SceneUtilities {
         } catch (IOException e) {
             throw new RuntimeException("Error loading FXML file: " + fxmlFile, e);
         } finally {
+            ((Node)event.getSource()).getScene().setFill(null);
             Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             stage.setTitle(title);
             stage.setScene(new Scene(root));

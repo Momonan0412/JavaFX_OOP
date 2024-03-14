@@ -31,15 +31,17 @@ public class SignInController implements Initializable {
             public void handle(ActionEvent actionEvent) {
                 // Query in database and find the textField_Username and passwordField_password.
                 // If success, go to main.fxml
+                System.out.println("Clicked button connect,  debugging.........");
                 if(DatabaseUtilities.userCheckerMethod(textField_Username.getText(), passwordField_password.getText())){
-                    SceneUtilities.changeScene(actionEvent, "Main.fxml", "Game", null);
+                    System.out.println("Passed the `userCheckerMethod`, debugging.........");
+                    SceneUtilities.changeScene(actionEvent, "/com/example/javafx_plus_willpower/Main.fxml", "Game", null);
                 }
             }
         });
         btn_SignUp.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                SceneUtilities.changeScene(actionEvent, "Sign_Up.fxml", "Sign Up", null);
+                SceneUtilities.changeScene(actionEvent, "/com/example/javafx_plus_willpower/Sign_Up.fxml", "Sign Up", null);
             }
         });
     }
