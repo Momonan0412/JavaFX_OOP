@@ -1,7 +1,9 @@
 package com.example.javafx_plus_willpower.sockets.client;
+import com.example.javafx_plus_willpower.controller.ChatController;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.ListView;
 
 import java.net.Socket;
 
@@ -21,6 +23,7 @@ public class ChatClient implements Runnable {
     Socket socket;
     Scanner input;
     PrintWriter output;
+    private final ChatController chatController;
 
     /**
      * Simple constructor which takes a client socket and assigns it to a local
@@ -28,8 +31,9 @@ public class ChatClient implements Runnable {
      *
      * @param s Socket taken from the client.
      */
-    public ChatClient(Socket s) {
+    public ChatClient(Socket s, ChatController chatController) {
         this.socket = s;
+        this.chatController = chatController;
     }
 
     /**
@@ -83,7 +87,7 @@ public class ChatClient implements Runnable {
                 // HOW TO HANDLE? THE GUI JAVA FX! SHOULD BE THREAD SAFE!
                 Platform.runLater(() -> {
                     ObservableList<String> listOfUsers = FXCollections.observableArrayList(currentUsers);
-//                    MainController.setListView_ViewOnlinePlayers( new ListView<>(listOfUsers));
+                    chatController.setListView_ViewOnlinePlayers( new ListView<>(listOfUsers));
                 });
                 // TODO: MAKE ANOTHER CLASS! (?)
             }
