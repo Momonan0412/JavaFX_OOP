@@ -38,15 +38,38 @@ public class ChatController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         defaultSetter();
-
+        connect();
     }
     // TODO: Implement methods that would update the @FXMLs nodes.
 
-    public void setListView_ViewOnlinePlayers(ListView<String> listView_ViewOnlinePlayers) {
-        this.listView_ViewOnlinePlayers = listView_ViewOnlinePlayers;
+
+    public ListView<String> getListView_ViewOnlinePlayers() {
+        return listView_ViewOnlinePlayers;
     }
+
+    public TextArea getTextArea_ChatMsgBox() {
+        return textArea_ChatMsgBox;
+    }
+
     private void defaultSetter(){
         textArea_ChatMsgBox.setEditable(false);
+    }
+    public static void sendAction() {
+        // TODO: "btn_ChatSendButton" HANDLES THIS, THE "send()" METHOD IS LOCATED IN THE CHAT CLIENT;
+        // TODO: USE `textArea_SendMsgBox` IT IS THE THIS PROGRAM'S `messageTF`
+//        if(!messageTF.getText().equals("")) {
+//            chatClient.send(messageTF.getText());
+//            messageTF.requestFocus();
+//        }
+    }
+    public static void disconnectAction() {
+        // TODO: "btn_ButtonDisconnect" HANDLES THIS, THE "disconnect()" METHOD IS LOCATED IN THE CHAT CLIENT;
+//        try {
+//            chatClient.disconnect();
+//        }
+//        catch (Exception e) {
+//            System.out.println(userName + "has disconnected.");
+//        }
     }
     // CONNECT METHOD SHOULD BE CALLED AFTER USER SUCCESSFULLY LOGGED IN
     public void connect() { // TODO: (?) SHOULD I MAKE ANOTHER CLASS FOR "CONNECT"?

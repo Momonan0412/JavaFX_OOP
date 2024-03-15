@@ -87,13 +87,16 @@ public class ChatClient implements Runnable {
                 // HOW TO HANDLE? THE GUI JAVA FX! SHOULD BE THREAD SAFE!
                 Platform.runLater(() -> {
                     ObservableList<String> listOfUsers = FXCollections.observableArrayList(currentUsers);
-                    chatController.setListView_ViewOnlinePlayers( new ListView<>(listOfUsers));
+                    chatController.getListView_ViewOnlinePlayers().getItems().setAll(listOfUsers);
                 });
                 // TODO: MAKE ANOTHER CLASS! (?)
             }
             else {
                 // TODO: Use `TextArea textArea_ChatMsgBox;`
 //                ChatClientGUI.conversationTA.append(message + "\n");
+                Platform.runLater(() -> {
+                    chatController.getTextArea_ChatMsgBox().appendText(message + "\n");
+                });
             }
         }
     }
@@ -103,11 +106,12 @@ public class ChatClient implements Runnable {
      * @param s
      */
     public void send(String s) {
-        // TODO: Use `Text text_NameOfThePlayer;`
+        // TODO: USE `Text text_NameOfThePlayer;` USE GETTER METHOD
         // For setting the username of the Client. Add `String userName`
 //        output.println(ChatClientGUI.userName + ": " + s);
 //        output.flush();
 //
+        // TODO: USE `textArea_SendMsgBox` USE GETTER METHOD
 //        ChatClientGUI.messageTF.setText("");
     }
 
