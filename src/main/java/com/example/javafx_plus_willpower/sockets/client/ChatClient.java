@@ -3,7 +3,9 @@ import com.example.javafx_plus_willpower.controller.ChatController;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
+import org.w3c.dom.Text;
 
 import java.net.Socket;
 
@@ -23,7 +25,7 @@ public class ChatClient implements Runnable {
     Socket socket;
     Scanner input;
     PrintWriter output;
-    private final ChatController chatController;
+    private ChatController chatController;
 
     /**
      * Simple constructor which takes a client socket and assigns it to a local
@@ -107,12 +109,17 @@ public class ChatClient implements Runnable {
      */
     public void send(String s) {
         // TODO: USE `Text text_NameOfThePlayer;` USE GETTER METHOD
-        // For setting the username of the Client. Add `String userName`
-//        output.println(ChatClientGUI.userName + ": " + s);
-//        output.flush();
-//
-        // TODO: USE `textArea_SendMsgBox` USE GETTER METHOD
-//        ChatClientGUI.messageTF.setText("");
+        /* For setting the username of the Client. Add `String userName`
+         * output.println(ChatClientGUI.userName + ": " + s);
+         * output.flush();
+         * */
+        Platform.runLater(()->{
+            output.println(chatController.getText_NameOfThePlayer() + ": " + s);
+            output.flush();
+            // TODO: USE `textArea_SendMsgBox` USE GETTER METHOD
+            // ChatClientGUI.messageTF.setText("");
+            chatController.getTextArea_SendMsgBox().setText("");
+        });
     }
 
     /**
@@ -122,11 +129,22 @@ public class ChatClient implements Runnable {
     public void disconnect() throws IOException { // Check if this should be propagating exceptions.
         // TODO: Use `Text text_NameOfThePlayer;`
 //        output.println(ChatClientGUI.userName + " has disconnected.");
-        output.flush();
-
-        socket.close();
+        Platform.runLater(()->{
+            try {
+                output.println(chatController.getText_NameOfThePlayer() + " has disconnected.");
+                output.flush();
+                socket.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
         // TODO: Use JavaFX Alert (There should be a class that handles alerts.)
 //        JOptionPane.showMessageDialog(null, "You disconnected!");
+//        Platform.runLater(() -> {
+//            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+//            alert.setContentText("You disconnected!");
+//            alert.show();
+//        });
         System.exit(0);
     }
 }

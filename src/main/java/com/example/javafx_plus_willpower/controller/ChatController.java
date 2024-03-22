@@ -2,6 +2,8 @@ package com.example.javafx_plus_willpower.controller;
 
 import com.example.javafx_plus_willpower.sockets.client.ChatClient;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -10,13 +12,16 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ChatController implements Initializable {
-    public static String userName = "Anon";
+    ChatClient chatClient;
+    private static final String userName = "Anon";
     // CHAT PANE------------------------------------------------------------------------------------------------------------
     @FXML
     private TextArea textArea_ChatMsgBox; // TODO: `setEditable(false);`
@@ -38,7 +43,19 @@ public class ChatController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         defaultSetter();
-        connect();
+        connectAction();
+        btn_ButtonDisconnect.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                disconnectAction();
+            }
+        });
+        btn_ChatSendButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                sendAction();
+            }
+        });
     }
     // TODO: Implement methods that would update the @FXMLs nodes.
 
@@ -54,15 +71,20 @@ public class ChatController implements Initializable {
     private void defaultSetter(){
         textArea_ChatMsgBox.setEditable(false);
     }
-    public static void sendAction() {
+    public void sendAction() {
         // TODO: "btn_ChatSendButton" HANDLES THIS, THE "send()" METHOD IS LOCATED IN THE CHAT CLIENT;
         // TODO: USE `textArea_SendMsgBox` IT IS THE THIS PROGRAM'S `messageTF`
 //        if(!messageTF.getText().equals("")) {
 //            chatClient.send(messageTF.getText());
 //            messageTF.requestFocus();
 //        }
+        if(!textArea_SendMsgBox.getText().isEmpty()) {
+            chatClient.send(textArea_SendMsgBox.getText());
+            System.out.println(textArea_SendMsgBox.getText());
+            textArea_SendMsgBox.requestFocus();
+        }
     }
-    public static void disconnectAction() {
+    public void disconnectAction() {
         // TODO: "btn_ButtonDisconnect" HANDLES THIS, THE "disconnect()" METHOD IS LOCATED IN THE CHAT CLIENT;
 //        try {
 //            chatClient.disconnect();
@@ -70,9 +92,14 @@ public class ChatController implements Initializable {
 //        catch (Exception e) {
 //            System.out.println(userName + "has disconnected.");
 //        }
+        try {
+            chatClient.disconnect();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     // CONNECT METHOD SHOULD BE CALLED AFTER USER SUCCESSFULLY LOGGED IN
-    public void connect() { // TODO: (?) SHOULD I MAKE ANOTHER CLASS FOR "CONNECT"?
+    public void connectAction() { // TODO: (?) SHOULD I MAKE ANOTHER CLASS FOR "CONNECT"?
         // TODO: AFTER LOGGING IN, GET THE USERNAME, UPDATE THE @userName, INSERT THE USERNAME AND PASSWORD IN DATABASE;
         // TODO:THE JAVAFX UI BASE IN THE USER,NAMELY: @text_NameOfThePlayer @listView_ViewOnlinePlayers and textArea_ChatMsgBox(?)
         try {
@@ -81,7 +108,7 @@ public class ChatController implements Initializable {
             Socket socket = new Socket(host, port);
             System.out.println("You connected to: " + host);
 
-            ChatClient chatClient = new ChatClient(socket, this);
+            chatClient = new ChatClient(socket, this);
 
             PrintWriter output = new PrintWriter(socket.getOutputStream());
             output.println(userName);
@@ -99,5 +126,12 @@ public class ChatController implements Initializable {
             });
 //            System.exit(0);
         }
+    }
+    public Text getText_NameOfThePlayer() {
+        return text_NameOfThePlayer;
+    }
+
+    public TextArea getTextArea_SendMsgBox() {
+        return textArea_SendMsgBox;
     }
 }
