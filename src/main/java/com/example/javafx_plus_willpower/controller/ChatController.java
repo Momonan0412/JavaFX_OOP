@@ -43,8 +43,7 @@ public class ChatController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         defaultSetter();
-        connectAction();
-        System.out.println(getText_NameOfThePlayer().getText()); // DEBUG!
+        System.out.println(getText_NameOfThePlayer().getText() + " is the username, debugging"); // DEBUG!
         btn_ButtonDisconnect.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -112,12 +111,13 @@ public class ChatController implements Initializable {
             // TODO: FIX ME! READ!
             // DISPLAY WRONG USERNAME!
             userName = getText_NameOfThePlayer().getText();
-//            System.out.println(userName);
+            System.out.println("Inside the connectAction method " + userName);
 
             chatClient = new ChatClient(socket, this);
 
             PrintWriter output = new PrintWriter(socket.getOutputStream());
-            output.println(userName);
+            output.println(userName); // Print as the "Online player" therefore username is null
+//            output.println(userName); // original, passed to the server
             output.flush();
 
             Thread t = new Thread(chatClient);

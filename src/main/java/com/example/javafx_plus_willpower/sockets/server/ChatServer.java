@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class ChatServer {
     public static ArrayList<Socket> connectionArray = new ArrayList<>();
     public static ArrayList<String> currentUsers = new ArrayList<>();
-
+    private ChatServer(){}
     /**
      * Main method which must throw an IOException.
      * @param args

@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="anchorPane_ParentOfChat" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="272.0" prefWidth="804.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafx_plus_willpower.controller.ChatController">
+<AnchorPane fx:id="anchorPane_ParentOfChat" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="272.0" prefWidth="804.0" style="-fx-border-radius: 15px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafx_plus_willpower.controller.ChatController">
    <children>
       <AnchorPane fx:id="anchorPane_ChatContainer" layoutX="19.0" layoutY="56.0" prefHeight="200.0" prefWidth="555.0" style="-fx-border-color: #808080;">
          <children>
@@ -82,7 +82,10 @@
                         <Font name="Bodoni MT" size="17.0" />
                      </font>
                   </Text>
-                  <Button fx:id="btn_ButtonDisconnect" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" style="-fx-background-radius: 10; -fx-background-color: #808080;" text="Disconnect" textFill="WHITE" />
+                  <Button fx:id="btn_ButtonDisconnect" alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" style="-fx-background-radius: 10; -fx-background-color: #808080;" text="Disconnect" textFill="WHITE">
+                     <effect>
+                        <Blend />
+                     </effect></Button>
                </children>
             </TilePane>
          </children>
