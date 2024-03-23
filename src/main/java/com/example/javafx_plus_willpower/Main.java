@@ -3,7 +3,9 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class Main  extends Application {
     public static void main(String[] args){
@@ -18,7 +20,8 @@ public class Main  extends Application {
 
             // Create the main scene
             Scene mainScene = new Scene(root);
-
+            mainScene.setFill(Color.TRANSPARENT);
+            primaryStage.initStyle(StageStyle.TRANSPARENT);
             // Set the main scene for the primary stage
             primaryStage.setScene(mainScene);
 

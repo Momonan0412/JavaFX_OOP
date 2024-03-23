@@ -77,7 +77,7 @@
          <children>
             <TilePane alignment="CENTER" layoutY="6.0" prefHeight="30.0" prefWidth="330.0">
                <children>
-                  <Text fx:id="text_NameOfThePlayer" fill="GREY" strokeType="OUTSIDE" strokeWidth="0.0" text="Player's Name" textAlignment="CENTER" wrappingWidth="164.0" TilePane.alignment="CENTER">
+                  <Text fx:id="text_NameOfThePlayer" fill="GREY" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="164.0" TilePane.alignment="CENTER">
                      <font>
                         <Font name="Bodoni MT" size="17.0" />
                      </font>

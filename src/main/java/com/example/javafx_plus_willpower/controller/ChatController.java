@@ -21,7 +21,7 @@ import java.util.ResourceBundle;
 
 public class ChatController implements Initializable {
     ChatClient chatClient;
-    private static final String userName = "Anon";
+    private String userName;
     // CHAT PANE------------------------------------------------------------------------------------------------------------
     @FXML
     private TextArea textArea_ChatMsgBox; // TODO: `setEditable(false);`
@@ -44,6 +44,7 @@ public class ChatController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         defaultSetter();
         connectAction();
+        System.out.println(getText_NameOfThePlayer().getText()); // DEBUG!
         btn_ButtonDisconnect.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -108,6 +109,11 @@ public class ChatController implements Initializable {
             Socket socket = new Socket(host, port);
             System.out.println("You connected to: " + host);
 
+            // TODO: FIX ME! READ!
+            // DISPLAY WRONG USERNAME!
+            userName = getText_NameOfThePlayer().getText();
+//            System.out.println(userName);
+
             chatClient = new ChatClient(socket, this);
 
             PrintWriter output = new PrintWriter(socket.getOutputStream());
@@ -118,20 +124,17 @@ public class ChatController implements Initializable {
             t.start();
 
         } catch(Exception e) {
-            System.out.println(e); // Debugging?
+            System.err.println(e); // Debugging?
             Platform.runLater(() -> {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setContentText("Server not responding.");
                 alert.show();
             });
-//            System.exit(0);
+            System.exit(0);
         }
     }
     public Text getText_NameOfThePlayer() {
         return text_NameOfThePlayer;
     }
-
-    public TextArea getTextArea_SendMsgBox() {
-        return textArea_SendMsgBox;
-    }
+    public TextArea getTextArea_SendMsgBox() { return textArea_SendMsgBox; }
 }

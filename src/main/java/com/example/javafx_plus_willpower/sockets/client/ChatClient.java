@@ -11,6 +11,7 @@ import java.net.Socket;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Arrays;
 import java.util.Scanner;
 
 // Refactored Java Swing to JavaFX
@@ -85,11 +86,16 @@ public class ChatClient implements Runnable {
                 temp = temp.replace("]", "");
 
                 String[] currentUsers = temp.split(", ");
+//                System.out.println(Arrays.toString(currentUsers));
                 // TODO: Use `ListView ListView_ViewOnlinePlayers;`
                 // HOW TO HANDLE? THE GUI JAVA FX! SHOULD BE THREAD SAFE!
+
+                // TODO: THE PROBLEM LIES IN `ChatServer` Class!
+                //  IT DOES NOT UPDATE THE LIST OF USER WHEN LOGGED IN! SORE WA MONDAI DESU NE!
                 Platform.runLater(() -> {
                     ObservableList<String> listOfUsers = FXCollections.observableArrayList(currentUsers);
                     chatController.getListView_ViewOnlinePlayers().getItems().setAll(listOfUsers);
+//                    System.out.println(listOfUsers);
                 });
                 // TODO: MAKE ANOTHER CLASS! (?)
             }
@@ -114,7 +120,7 @@ public class ChatClient implements Runnable {
          * output.flush();
          * */
         Platform.runLater(()->{
-            output.println(chatController.getText_NameOfThePlayer() + ": " + s);
+            output.println(chatController.getText_NameOfThePlayer().getText() + ": " + s);
             output.flush();
             // TODO: USE `textArea_SendMsgBox` USE GETTER METHOD
             // ChatClientGUI.messageTF.setText("");
@@ -131,7 +137,7 @@ public class ChatClient implements Runnable {
 //        output.println(ChatClientGUI.userName + " has disconnected.");
         Platform.runLater(()->{
             try {
-                output.println(chatController.getText_NameOfThePlayer() + " has disconnected.");
+                output.println(chatController.getText_NameOfThePlayer().getText() + " has disconnected.");
                 output.flush();
                 socket.close();
             } catch (IOException e) {

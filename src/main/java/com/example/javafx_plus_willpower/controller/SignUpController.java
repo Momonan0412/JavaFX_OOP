@@ -60,7 +60,7 @@ public class SignUpController implements Initializable {
 
                             // If signup was successful, change the scene
                             if (signupResult.equals("Data inserted successfully!")) {
-                                SceneUtilities.changeScene(actionEvent, "/com/example/javafx_plus_willpower/Sign_In.fxml", "Sign In", null);
+                                SceneUtilities.changeScene(actionEvent, "/com/example/javafx_plus_willpower/Sign_In.fxml", "Sign In", null, null);
                             }
                         });
                     }

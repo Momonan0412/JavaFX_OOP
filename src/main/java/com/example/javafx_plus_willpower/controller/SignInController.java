@@ -33,16 +33,17 @@ public class SignInController implements Initializable {
                 // If success, go to main.fxml
                 System.out.println("Clicked button connect,  debugging.........");
                 if(DatabaseUtilities.userCheckerMethod(textField_Username.getText(), passwordField_password.getText())){
+                    System.out.println("Debugging username! -> \"" + textField_Username.getText() + "\"");
                     System.out.println("Passed the `userCheckerMethod`, debugging.........");
                     // Switching to the Chat.fxml scene will automatically instantiate the ChatController class.
-                    SceneUtilities.changeScene(actionEvent, "/com/example/javafx_plus_willpower/Chat.fxml", "Game", null);
+                    SceneUtilities.changeScene(actionEvent, "/com/example/javafx_plus_willpower/Chat.fxml", "Game", null,textField_Username.getText());
                 }
             }
         });
         btn_SignUp.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                SceneUtilities.changeScene(actionEvent, "/com/example/javafx_plus_willpower/Sign_Up.fxml", "Sign Up", null);
+                SceneUtilities.changeScene(actionEvent, "/com/example/javafx_plus_willpower/Sign_Up.fxml", "Sign Up", null, null);
             }
         });
     }

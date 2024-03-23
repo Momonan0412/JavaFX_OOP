@@ -48,6 +48,7 @@ public class ChatServer {
      * @param socket the socket of a client
      * @throws IOException
      */
+    // TODO: THE PROBLEM LIES IN HERE! IT DOES NOT UPDATE THE LIST OF USER WHEN LOGGED IN! SORE WA MONDAI DESU NE!
     public static void addUserName(Socket socket) throws IOException {
         Scanner input = new Scanner(socket.getInputStream());
         String username = input.nextLine();
