@@ -1,5 +1,6 @@
 package com.example.javafx_plus_willpower.utilities;
 
+import com.example.javafx_plus_willpower.callbacks.UIUpdateCallback;
 import com.example.javafx_plus_willpower.controller.ChatController;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -29,7 +30,9 @@ public class SceneUtilities {
      *                   to interact with the loaded UI elements or perform other actions.
      * @throws RuntimeException If an IOException occurs during the FXML file loading process.
      */
-    public static void changeScene(ActionEvent event, String fxmlFile, String title, Object controller, String playerName){ // To be change if this method propagates exception
+    public static void changeScene(ActionEvent event, String fxmlFile, String title,
+                                   Object controller, String playerName,
+                                   UIUpdateCallback callback){ // To be change if this method propagates exception
         Parent root = null; // Assign root node for the new scene
         FXMLLoader loader = null;
         try{
@@ -58,10 +61,10 @@ public class SceneUtilities {
                 Platform.runLater(()->{
                     ((ChatController) finalLoader.getController()).getText_NameOfThePlayer().setText(playerName);
                     System.out.println("In the `changeScene` method! Debugging! " + playerName);
-                    ((ChatController) finalLoader.getController()).connectAction();
+//                    ((ChatController) finalLoader.getController()).connectAction();
+                    callback.onUIUpdated(finalLoader);
                 });
             }
-
             stage.centerOnScreen();
             stage.show();
         }

@@ -1,10 +1,12 @@
 package com.example.javafx_plus_willpower.controller;
 
+import com.example.javafx_plus_willpower.callbacks.UIUpdateCallback;
 import com.example.javafx_plus_willpower.utilities.DatabaseUtilities;
 import com.example.javafx_plus_willpower.utilities.SceneUtilities;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -13,7 +15,7 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class SignInController implements Initializable {
+public class SignInController implements Initializable, UIUpdateCallback {
     @FXML
     private TextField textField_Username;
     @FXML
@@ -36,15 +38,23 @@ public class SignInController implements Initializable {
                     System.out.println("Debugging username! -> \"" + textField_Username.getText() + "\"");
                     System.out.println("Passed the `userCheckerMethod`, debugging.........");
                     // Switching to the Chat.fxml scene will automatically instantiate the ChatController class.
-                    SceneUtilities.changeScene(actionEvent, "/com/example/javafx_plus_willpower/Chat.fxml", "Game", null,textField_Username.getText());
+                    SceneUtilities.changeScene(actionEvent, "/com/example/javafx_plus_willpower/Chat.fxml", "Game", null,textField_Username.getText(), (loader)->{
+                        onUIUpdated(loader);
+                    });
                 }
             }
         });
         btn_SignUp.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                SceneUtilities.changeScene(actionEvent, "/com/example/javafx_plus_willpower/Sign_Up.fxml", "Sign Up", null, null);
+                SceneUtilities.changeScene(actionEvent, "/com/example/javafx_plus_willpower/Sign_Up.fxml", "Sign Up", null, null, null);
             }
         });
+    }
+
+    @Override
+    public void onUIUpdated(FXMLLoader loader) {
+        ChatController controller = loader.getController();
+        controller.connectAction();
     }
 }

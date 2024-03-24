@@ -15,8 +15,11 @@ module com.example.javafx_practice {
 
     opens com.example.javafx_plus_willpower to javafx.fxml;
     exports com.example.javafx_plus_willpower;
+
     exports com.example.javafx_plus_willpower.utilities;
     opens com.example.javafx_plus_willpower.utilities to javafx.fxml;
     exports com.example.javafx_plus_willpower.controller;
     opens com.example.javafx_plus_willpower.controller to javafx.fxml;
+    exports com.example.javafx_plus_willpower.callbacks;
+    opens com.example.javafx_plus_willpower.callbacks to javafx.fxml;
 }

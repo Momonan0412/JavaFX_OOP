@@ -54,8 +54,7 @@ public class ChatServer {
         String username = input.nextLine();
         currentUsers.add(username);
 
-        for (int i = 0; i < connectionArray.size(); i++) {
-            Socket tempSocket = connectionArray.get(i);
+        for (Socket tempSocket : connectionArray) {
             PrintWriter output = new PrintWriter(tempSocket.getOutputStream());
 
             output.println("#?!" + currentUsers);
