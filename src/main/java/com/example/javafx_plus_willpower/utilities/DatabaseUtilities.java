@@ -4,19 +4,14 @@ import com.example.javafx_plus_willpower.record.DatabaseConfig;
 import java.sql.*;
 
 public class DatabaseUtilities {
-    private static final DatabaseConfig DATABASE_CONFIG = new DatabaseConfig(
-            "jdbc:mysql://localhost:3306/dbjavafx",
-            "root",
-            "Chua123",
-            "tbluseraccount"
-    );
+    private static final DatabaseConfig DATABASE_CONFIG = DatabaseConfig.createWithDefaults();
     private DatabaseUtilities() {
         // Private constructor to prevent instantiation from outside the class
     }
     // Load the JDBC driver
     static {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName( DATABASE_CONFIG.MYSQL_JDBC_DRIVER_CLASS());
         } catch (ClassNotFoundException e) {
             throw new RuntimeException("Failed to load MySQL JDBC driver", e);
         }

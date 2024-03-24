@@ -1,5 +1,7 @@
 package com.example.javafx_plus_willpower.controller;
 
+import com.example.javafx_plus_willpower.record.SignInConfig;
+import com.example.javafx_plus_willpower.record.SignUpConfig;
 import com.example.javafx_plus_willpower.utilities.DatabaseUtilities;
 import com.example.javafx_plus_willpower.utilities.SceneUtilities;
 import javafx.application.Platform;
@@ -16,6 +18,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class SignUpController implements Initializable {
+
+    private static final SignInConfig SIGN_IN_CONFIG = SignInConfig.createWithDefaults();
     @FXML
     private TextField textField_UserName;
     @FXML
@@ -60,7 +64,8 @@ public class SignUpController implements Initializable {
 
                             // If signup was successful, change the scene
                             if (signupResult.equals("Data inserted successfully!")) {
-                                SceneUtilities.changeScene(actionEvent, "/com/example/javafx_plus_willpower/Sign_In.fxml", "Sign In", null, null, null);
+                                SceneUtilities.changeScene(actionEvent, SIGN_IN_CONFIG.fxmlFilePath(), SIGN_IN_CONFIG.title(),
+                                        null, null, null);
                             }
                         });
                     }

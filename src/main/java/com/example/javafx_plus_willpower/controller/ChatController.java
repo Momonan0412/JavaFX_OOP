@@ -43,7 +43,6 @@ public class ChatController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         defaultSetter();
-        System.out.println(getText_NameOfThePlayer().getText() + " is the username, debugging"); // DEBUG!
         btn_ButtonDisconnect.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -111,7 +110,7 @@ public class ChatController implements Initializable {
             // TODO: FIX ME! READ!
             // DISPLAY WRONG USERNAME!
             userName = getText_NameOfThePlayer().getText();
-            System.out.println("Inside the connectAction method " + userName);
+            System.out.println("Inside the connectAction method, username: " + userName);
 
             chatClient = new ChatClient(socket, this);
 

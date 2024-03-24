@@ -1,6 +1,9 @@
 package com.example.javafx_plus_willpower.controller;
 
 import com.example.javafx_plus_willpower.callbacks.UIUpdateCallback;
+import com.example.javafx_plus_willpower.record.ChatConfig;
+import com.example.javafx_plus_willpower.record.SignInConfig;
+import com.example.javafx_plus_willpower.record.SignUpConfig;
 import com.example.javafx_plus_willpower.utilities.DatabaseUtilities;
 import com.example.javafx_plus_willpower.utilities.SceneUtilities;
 import javafx.event.ActionEvent;
@@ -16,14 +19,14 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class SignInController implements Initializable, UIUpdateCallback {
+    private static final SignUpConfig SIGN_UP_CONFIG = SignUpConfig.createWithDefaults();
+    private static final ChatConfig CHAT_CONFIG = ChatConfig.createWithDefaults();
     @FXML
     private TextField textField_Username;
     @FXML
     private PasswordField passwordField_password;
     @FXML
     private Button btn_ButtonConnect;
-    @FXML
-    private Button btn_ButtonExit;
     @FXML
     private Button btn_SignUp;
     @Override
@@ -33,12 +36,9 @@ public class SignInController implements Initializable, UIUpdateCallback {
             public void handle(ActionEvent actionEvent) {
                 // Query in database and find the textField_Username and passwordField_password.
                 // If success, go to main.fxml
-                System.out.println("Clicked button connect,  debugging.........");
                 if(DatabaseUtilities.userCheckerMethod(textField_Username.getText(), passwordField_password.getText())){
-                    System.out.println("Debugging username! -> \"" + textField_Username.getText() + "\"");
-                    System.out.println("Passed the `userCheckerMethod`, debugging.........");
                     // Switching to the Chat.fxml scene will automatically instantiate the ChatController class.
-                    SceneUtilities.changeScene(actionEvent, "/com/example/javafx_plus_willpower/Chat.fxml", "Game", null,textField_Username.getText(), (loader)->{
+                    SceneUtilities.changeScene(actionEvent, CHAT_CONFIG.fxmlFilePath(), CHAT_CONFIG.title(), null, textField_Username.getText(), (loader)->{
                         onUIUpdated(loader);
                     });
                 }
@@ -47,7 +47,7 @@ public class SignInController implements Initializable, UIUpdateCallback {
         btn_SignUp.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                SceneUtilities.changeScene(actionEvent, "/com/example/javafx_plus_willpower/Sign_Up.fxml", "Sign Up", null, null, null);
+                SceneUtilities.changeScene(actionEvent, SIGN_UP_CONFIG.fxmlFilePath(), SIGN_UP_CONFIG.title(), null, null, null);
             }
         });
     }
