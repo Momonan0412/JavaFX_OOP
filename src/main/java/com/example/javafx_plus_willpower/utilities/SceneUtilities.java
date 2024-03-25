@@ -31,7 +31,7 @@ public class SceneUtilities {
      * @throws RuntimeException If an IOException occurs during the FXML file loading process.
      */
     public static void changeScene(ActionEvent event, String fxmlFile, String title,
-                                   Object controller, String playerName,
+                                   Object previousController, String playerName,
                                    UIUpdateCallback callback){ // To be change if this method propagates exception
         Parent root = null; // Assign root node for the new scene
         FXMLLoader loader = null;
@@ -39,12 +39,17 @@ public class SceneUtilities {
             loader = new FXMLLoader(SceneUtilities.class.getResource(fxmlFile));
             root = loader.load();
             if(root == null) System.out.println("The root is null!");
-            if (controller != null) {
-                // Set the provided controller instance using FXMLLoader
-                controller = loader.getController();
-                // TODO: Implement any logic that involves the previous controller, if needed
-                // Example: Setting or changing the controller UI
-            }
+//            if (previousController != null) {
+//                // TODO: Clean Controller
+//                // Example: Stop background processes
+//                previousController.stopBackgroundProcesses();
+//                // Example: Cleanup resources
+//                previousController.cleanupResources();
+//                // Example: Disable UI updates
+//                previousController.disableUIUpdates();
+//                // Example: Dispose of controller
+//                previousController.dispose();
+//            }
         } catch (IOException e) {
             throw new RuntimeException("Error loading FXML file: " + fxmlFile, e);
         } finally {

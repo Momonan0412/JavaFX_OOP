@@ -1,0 +1,63 @@
+.text-field {
+    -fx-font-weight: bold;
+    -fx-font-size: 16;
+    -fx-text-fill: white;
+    -fx-background-color: #333333;
+    -fx-border-color: #000000;
+    -fx-border-width: 1;
+}
+
+.text-field:hover {
+    -fx-background-color: white;
+    -fx-text-fill: #333333;
+    -fx-border-color: #333333;
+}
+
+.text-field:pressed {
+    -fx-background-color: white;
+    -fx-text-fill: #333333;
+    -fx-border-color: #333333;
+    -fx-rotate: 10;
+}
+.password-field {
+    -fx-font-weight: bold;
+    -fx-font-size: 16;
+    -fx-text-fill: white;
+    -fx-background-color: #333333;
+    -fx-border-color: #000000;
+    -fx-border-width: 1;
+}
+
+.password-field:hover {
+    -fx-background-color: white;
+    -fx-text-fill: #333333;
+    -fx-border-color: #333333;
+}
+
+.password-field:pressed {
+    -fx-background-color: white;
+    -fx-text-fill: #333333;
+    -fx-border-color: #333333;
+    -fx-rotate: 10;
+}
+.text-area {
+    -fx-font-weight: bold;
+    -fx-font-size: 16;
+    -fx-text-fill: white;
+    -fx-background-color: #333333;
+    -fx-border-color: #000000;
+    -fx-border-width: 1;
+}
+
+.text-area:hover {
+    -fx-background-color: white;
+    -fx-text-fill: #333333;
+    -fx-border-color: #333333;
+}
+
+.text-area:pressed {
+    -fx-background-color: white;
+    -fx-text-fill: #333333;
+    -fx-border-color: #333333;
+    -fx-rotate: 10;
+}

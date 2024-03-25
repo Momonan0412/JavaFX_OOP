@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
@@ -8,63 +7,77 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.effect.Blend?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="anchorPane_ParentOfChat" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="272.0" prefWidth="804.0" style="-fx-border-radius: 15px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafx_plus_willpower.controller.ChatController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="275.0" prefWidth="792.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafx_plus_willpower.controller.ChatController">
    <children>
-      <AnchorPane fx:id="anchorPane_ChatContainer" layoutX="19.0" layoutY="56.0" prefHeight="200.0" prefWidth="555.0" style="-fx-border-color: #808080;">
+      <AnchorPane layoutX="3.0" layoutY="2.0" prefHeight="60.0" prefWidth="787.0" style="-fx-border-color: black; -fx-border-radius: 15px; -fx-background-color: #808080; -fx-background-radius: 15px;">
          <children>
-            <ScrollPane prefHeight="137.0" prefWidth="564.0">
+            <AnchorPane prefHeight="60.0" prefWidth="306.0">
+               <children>
+                  <Text fx:id="text_NameOfThePlayer" fill="GREY" layoutX="14.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="164.0">
+                     <font>
+                        <Font name="Bodoni MT" size="17.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="btn_ButtonDisconnect" alignment="CENTER" contentDisplay="CENTER" layoutX="178.0" layoutY="13.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="117.0" stylesheets="@button_style.css" text="Disconnect" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                     <effect>
+                        <Blend />
+                     </effect>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </AnchorPane>
+      <AnchorPane layoutX="2.0" layoutY="66.0" prefHeight="200.0" prefWidth="575.0" style="-fx-border-color: black; -fx-border-radius: 15; -fx-background-color: #808080; -fx-background-radius: 15;">
+         <children>
+            <ScrollPane layoutX="12.0" layoutY="14.0" prefHeight="126.0" prefWidth="555.0">
                <content>
                   <AnchorPane prefHeight="127.0" prefWidth="555.0">
                      <children>
                         <VBox prefHeight="137.0" prefWidth="555.0">
                            <children>
-                              <TextArea fx:id="textArea_ChatMsgBox" prefHeight="137.0" prefWidth="418.0" />
+                              <TextArea fx:id="textArea_ChatMsgBox" prefHeight="137.0" prefWidth="418.0" stylesheets="@inputs_style.css" />
                            </children>
                         </VBox>
                      </children>
                   </AnchorPane>
                </content>
             </ScrollPane>
-            <TextArea fx:id="textArea_SendMsgBox" layoutX="5.0" layoutY="140.0" prefHeight="60.0" prefWidth="440.0" promptText="Type a message..." />
-            <VBox alignment="CENTER" layoutX="439.0" layoutY="139.0" prefHeight="59.0" prefWidth="125.0">
+            <TextArea fx:id="textArea_SendMsgBox" layoutX="22.0" layoutY="150.0" prefHeight="41.0" prefWidth="426.0" promptText="Type a message..." stylesheets="@inputs_style.css" />
+            <AnchorPane layoutX="448.0" layoutY="140.0" prefHeight="60.0" prefWidth="117.0">
                <children>
-                  <Button fx:id="btn_ChatSendButton" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="5.0" mnemonicParsing="false" prefHeight="205.0" prefWidth="106.0" style="-fx-background-radius: 10; -fx-background-color: #808080;" text="Send" textFill="WHITE" wrapText="true">
-                     <VBox.margin>
-                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font name="Bodoni MT Bold" size="15.0" />
-                     </font>
+                  <Button fx:id="btn_ChatSendButton" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="5.0" layoutX="6.0" layoutY="13.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="106.0" stylesheets="@button_style.css" text="Send" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                      <effect>
                         <Blend mode="MULTIPLY" />
                      </effect>
                   </Button>
                </children>
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor>
-            </VBox>
+            </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="anchorPane_OnlinePlayerContainer" layoutX="585.0" layoutY="57.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #808080;">
+      <AnchorPane layoutX="579.0" layoutY="67.0" prefHeight="200.0" prefWidth="212.0" style="-fx-border-color: black; -fx-border-radius: 15px; -fx-background-color: #808080; -fx-background-radius: 15px;">
          <children>
-            <Text fill="#808080" fontSmoothingType="LCD" layoutX="50.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Players Online" textAlignment="CENTER" wrappingWidth="100.0">
+            <Text fx:id="txt_PlayersOnline" fontSmoothingType="LCD" layoutX="48.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Players Online" textAlignment="CENTER" wrappingWidth="117.0">
                <font>
-                  <Font name="Bodoni MT Bold" size="15.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="NONE" />
+               </cursor>
             </Text>
-            <ScrollPane layoutY="42.0" prefHeight="151.0" prefWidth="200.0">
+            <ScrollPane layoutX="6.0" layoutY="42.0" prefHeight="137.0" prefWidth="200.0" style="-fx-border-radius: 15;">
                <content>
-                  <AnchorPane prefHeight="136.0" prefWidth="200.0">
+                  <AnchorPane prefHeight="136.0" prefWidth="176.0">
                      <children>
-                        <VBox layoutY="-8.0" prefHeight="137.0" prefWidth="200.0">
+                        <VBox layoutY="-8.0" prefHeight="137.0" prefWidth="188.0">
                            <children>
-                              <ListView fx:id="listView_ViewOnlinePlayers" prefHeight="163.0" prefWidth="200.0" />
+                              <ListView fx:id="listView_ViewOnlinePlayers" prefHeight="137.0" prefWidth="179.0" />
                            </children>
                         </VBox>
                      </children>
@@ -72,23 +85,9 @@
                </content>
             </ScrollPane>
          </children>
-      </AnchorPane>
-      <AnchorPane fx:id="anchorPane_NameAndDisconnect" layoutX="18.0" layoutY="14.0" prefHeight="43.0" prefWidth="768.0" style="-fx-border-color: #808080;">
-         <children>
-            <TilePane alignment="CENTER" layoutY="6.0" prefHeight="30.0" prefWidth="330.0">
-               <children>
-                  <Text fx:id="text_NameOfThePlayer" fill="GREY" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="164.0" TilePane.alignment="CENTER">
-                     <font>
-                        <Font name="Bodoni MT" size="17.0" />
-                     </font>
-                  </Text>
-                  <Button fx:id="btn_ButtonDisconnect" alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" style="-fx-background-radius: 10; -fx-background-color: #808080;" text="Disconnect" textFill="WHITE">
-                     <effect>
-                        <Blend />
-                     </effect></Button>
-               </children>
-            </TilePane>
-         </children>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
       </AnchorPane>
    </children>
 </AnchorPane>

@@ -37,9 +37,6 @@ public class ChatController implements Initializable {
 //  USERNAME AND LIST OF PLAYER ----------------------------------------------------------------------------------------
     @FXML
     private ListView<String> listView_ViewOnlinePlayers; // TODO: implement `ObservableList<String>` and append.
-//  NAME AND DISCONNECT ------------------------------------------------------------------------------------------------
-    @FXML
-    public AnchorPane anchorPane_NameAndDisconnect;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         defaultSetter();
@@ -68,7 +65,7 @@ public class ChatController implements Initializable {
     }
 
     private void defaultSetter(){
-        textArea_ChatMsgBox.setEditable(false);
+        textArea_ChatMsgBox.setEditable(false);;
     }
     public void sendAction() {
         // TODO: "btn_ChatSendButton" HANDLES THIS, THE "send()" METHOD IS LOCATED IN THE CHAT CLIENT;

@@ -51,7 +51,6 @@ public class SignInController implements Initializable, UIUpdateCallback {
             }
         });
     }
-
     @Override
     public void onUIUpdated(FXMLLoader loader) {
         ChatController controller = loader.getController();

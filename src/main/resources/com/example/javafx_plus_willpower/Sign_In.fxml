@@ -8,23 +8,23 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="215.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafx_plus_willpower.controller.SignInController">
+<AnchorPane prefHeight="236.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafx_plus_willpower.controller.SignInController">
    <children>
-      <Pane fx:id="pane_SignInContainer" prefHeight="215.0" prefWidth="500.0">
+      <Pane fx:id="pane_SignInContainer" prefHeight="236.0" prefWidth="500.0" style="-fx-background-color: #808080; -fx-background-radius: 15px;">
          <children>
-            <TextField fx:id="textField_Username" alignment="CENTER" layoutX="176.0" layoutY="46.0" promptText="Username" />
-            <PasswordField fx:id="passwordField_password" alignment="CENTER" layoutX="178.0" layoutY="85.0" promptText="Password" />
-            <Button fx:id="btn_ButtonConnect" layoutX="178.0" layoutY="125.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="149.0" style="-fx-background-radius: 15;" text="Connect" textFill="WHITE">
+            <TextField fx:id="textField_Username" alignment="CENTER" layoutX="146.0" layoutY="64.0" promptText="Username" stylesheets="@inputs_style.css" />
+            <PasswordField fx:id="passwordField_password" alignment="CENTER" layoutX="146.0" layoutY="106.0" promptText="Password" stylesheets="@inputs_style.css" />
+            <Button fx:id="btn_ButtonConnect" layoutX="180.0" layoutY="156.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="149.0" style="-fx-background-radius: 15;" stylesheets="@button_style.css" text="Connect" textFill="WHITE">
                <font>
                   <Font name="Bodoni MT Bold" size="15.0" />
                </font>
             </Button>
-            <Text layoutX="178.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign In" textAlignment="CENTER" wrappingWidth="148.5078125">
+            <Text layoutX="178.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign In" textAlignment="CENTER" wrappingWidth="148.5078125">
                <font>
-                  <Font name="Bodoni MT Bold" size="27.0" />
+                  <Font name="System Bold" size="44.0" />
                </font>
             </Text>
-            <AnchorPane layoutY="155.0" prefHeight="49.0" prefWidth="500.0">
+            <AnchorPane layoutX="2.0" layoutY="186.0" prefHeight="49.0" prefWidth="500.0">
                <children>
                   <Text layoutX="108.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Don't have an account?" textAlignment="CENTER" wrappingWidth="284.13671875" />
                   <Button fx:id="btn_SignUp" layoutX="211.0" layoutY="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="78.0" style="-fx-background-color: transparent;" text="Sign Up" underline="true" />
