@@ -1,0 +1,20 @@
+.list-view {
+    -fx-font-weight: bold;
+    -fx-font-size: 16;
+    -fx-background-color: white;
+    -fx-border-color: #000000;
+    -fx-border-width: 1;
+}
+
+.list-view:hover {
+    -fx-background-color: white;
+    -fx-text-fill: #333333;
+    -fx-border-color: #333333;
+}
+
+.list-view:pressed {
+    -fx-background-color: white;
+    -fx-text-fill: #333333;
+    -fx-border-color: #333333;
+    -fx-rotate: 10;
+}

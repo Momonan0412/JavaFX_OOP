@@ -17,7 +17,6 @@ public class Main  extends Application {
             // Load the existing FXML file
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Sign_In.fxml"));
             Parent root = loader.load();
-
             // Create the main scene
             Scene mainScene = new Scene(root);
             mainScene.setFill(Color.TRANSPARENT);

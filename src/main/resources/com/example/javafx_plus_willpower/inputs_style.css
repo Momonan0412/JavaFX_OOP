@@ -43,7 +43,6 @@
 .text-area {
     -fx-font-weight: bold;
     -fx-font-size: 16;
-    -fx-text-fill: white;
     -fx-background-color: #333333;
     -fx-border-color: #000000;
     -fx-border-width: 1;

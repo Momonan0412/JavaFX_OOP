@@ -53,14 +53,16 @@ public class SceneUtilities {
         } catch (IOException e) {
             throw new RuntimeException("Error loading FXML file: " + fxmlFile, e);
         } finally {
-            ((Node)event.getSource()).getScene().setFill(Color.TRANSPARENT);
-            Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+            Scene currentScene = ((Node) event.getSource()).getScene();
+
+            Scene newScene = new Scene(root);
+            newScene.setFill(Color.TRANSPARENT);
+
+            Stage stage = (Stage) currentScene.getWindow();
             stage.setTitle(title);
-            stage.setScene(new Scene(root));
+            stage.setScene(newScene);
 
             assert loader != null;
-            // TODO: FIX! IMPORTANT! CHECK THE COMMENT BELOW THIS!
-            // The List of Players is not updated!
             if(loader.getController() instanceof ChatController){
                 FXMLLoader finalLoader = loader;
                 Platform.runLater(()->{
